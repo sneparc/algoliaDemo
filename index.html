@@ -1,1 +1,49 @@
-index.html
+<!DOCTYPE html>
+<html>
+<head>
+	<title>E-Commerce Site</title>
+	<!-- import algolia JS client here -->
+	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous">
+	</script>
+
+<!-- Include only the reset -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
+<!-- or include the full Satellite theme -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
+
+<link rel="stylesheet" href="app.css" />
+
+
+</head>
+<body>
+	<div class="ais-InstantSearch">
+<h1>E-Commmerce Site</h1>
+
+<div class="left-panel">
+<div id="clear-refinements"></div>
+
+</div>
+
+<div class="right-panel">
+<div id="searchbox"></div>
+<div id="hits"></div>
+<div id="pagination"></div>
+</div>
+</div>
+<script>
+// 	// const app = document.getElementById("app");
+// 	// const algolia = algoliasearch("SBVFTCHWMS","4b19609de87f3c4ede4c651a0a9d371c");
+// 	// const index = algolia.initIndex("dev_eCommerce");
+
+// 	// index.search("").then(results => {
+// 	// 	console.log(results);
+// 	// 	const hits = results.hits.map(hit => `<p>${hit.name}</p>`);
+// 	// 	app.innerHTML = hits.join("");
+// 	// })
+
+</script>
+<script type="text/javascript" src="app.js">
+</script>
+</body>
+</html>
