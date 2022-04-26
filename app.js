@@ -39,10 +39,10 @@ search.addWidgets([
   })
 ]);
 
-//Do a search method on the search variable
+// //Do a start method on the search variable
 search.start();
-//Log search variable to see if everything is working and open browser and console to see if everything is working. Tell them that it's ok that nothing is happening at first which is to be expected, and then open console to see search object is logged correctly. You'll see an error message if there is something wrong, such as the wrong api key.
-//Can show an example of an error message.
+// //Log search variable to see if everything is working and open browser and console to see if everything is working. Tell them that it's ok that nothing is happening at first which is to be expected, and then open console to see search object is logged correctly. You'll see an error message if there is something wrong, such as the wrong api key.
+// //Can show an example of an error message.
 console.log(search)
 
 
@@ -86,14 +86,14 @@ console.log(search)
 
 // Configure Textual Relevance for your Data:
 
-
+//
 // const algoliasearch = require('algoliasearch');
-
+//
 // const client = algoliasearch('SBVFTCHWMS', '56d9bed1da275f0448f2e0c38e76b518');
-
-
-//Observe the attributes for your data, this confirms that nothing is set up for the searchable attributes.
-
+//
+// const index = client.initIndex('dev_eCommerce')
+// //Observe the attributes for your data, this confirms that nothing is set up for the searchable attributes.
+//
 // index.getSettings().then(result => console.log(result));
 
 //Here we perform an empty query on our index to see what's coming out of it and in what order.
@@ -114,8 +114,16 @@ console.log(search)
 
 
 
+//This holds the search instance
+// const search = instantsearch({
+//     indexName: 'dev_eCommerce',
+//     searchClient,
+// });
 
-
+//search.start();
+// //Log search variable to see if everything is working and open browser and console to see if everything is working. Tell them that it's ok that nothing is happening at first which is to be expected, and then open console to see search object is logged correctly. You'll see an error message if there is something wrong, such as the wrong api key.
+// //Can show an example of an error message.
+//console.log(search)
 
 
 
