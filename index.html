@@ -2,10 +2,7 @@
 <html>
 <head>
 	<title>E-Commerce Site</title>
-	<!-- import algolia JS client here using a cdn-->
-	<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous">
-	</script>
+	
 <!--Include InstantSearch CSS Library using a cdn-->
 <!-- Include only the reset -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.3.1/themes/reset-min.css" integrity="sha256-t2ATOGCtAIZNnzER679jwcFcKYfLlw01gli6F6oszk8=" crossorigin="anonymous">
@@ -13,6 +10,8 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@7.4.5/themes/satellite-min.css" integrity="sha256-TehzF/2QvNKhGQrrNpoOb2Ck4iGZ1J/DI4pkd2oUsBc=" crossorigin="anonymous">
 
 <link rel="stylesheet" href="app.css" />
+<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js" integrity="sha256-EXPXz4W6pQgfYY3yTpnDa3OH8/EPn16ciVsPQ/ypsjk=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.8.3/dist/instantsearch.production.min.js" integrity="sha256-LAGhRRdtVoD6RLo2qDQsU2mp+XVSciKRC8XPOBWmofM=" crossorigin="anonymous"></script>
 
 
 </head>
@@ -27,7 +26,43 @@
 
 </div>
 </div>
-<script type="text/javascript" src="app.js">
+<script type="text/javascript" src="app.js"></script>
+<!-- import algolia JS client here using a cdn-->
+<!-- search only version -->
+<script>
+
+
+const searchClient = algoliasearch('SBVFTCHWMS', '4b19609de87f3c4ede4c651a0a9d371c');
+
+const search = instantsearch({
+  indexName: 'dev_eCommerce',
+  searchClient,
+});
+
+search.addWidgets([
+  instantsearch.widgets.searchBox({
+    container: '#searchbox',
+    placeholder: "Search for product, brands, or categories"
+  }),
+
+  instantsearch.widgets.hits({
+    container: '#hits',
+    templates:{
+    	item: data =>`
+    	<img src= "${data.image}" />
+    	<div class="hit-title">
+    	<h4>${data._highlightResult.name.value}</h4>
+    	<div class="price">${data.price}</div>
+    	</div>
+    	<p>${data._highlightResult.description.value}</p>
+    	<br>
+    	<br>
+    	`
+    }
+  })
+]);
+
+search.start();
 </script>
 </body>
 </html>
