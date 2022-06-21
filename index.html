@@ -24,7 +24,12 @@
 		<div id="searchbox"></div>
 		<div id="hits"></div>
 
-</div>
+	</div>
+
+	<div class="left-panel">
+		<div id="refinement-list"></div>
+	</div>
+
 </div>
 <script type="text/javascript" src="app.js"></script>
 <!-- import algolia JS client here using a cdn-->
@@ -59,7 +64,12 @@ search.addWidgets([
     	<br>
     	`
     }
-  })
+  }),
+  instantsearch.widgets.refinementList({
+  container: '#refinement-list',
+  attribute: 'brand',
+  }),
+
 ]);
 
 search.start();
